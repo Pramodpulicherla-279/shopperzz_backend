@@ -35,6 +35,7 @@ exports.login = async (req, res) => {
     const payload = {
       user: {
         id: user.id, // Assuming your user table has an 'id' column
+        name: user.name,
         // you can add more user details here if needed
       },
     };
@@ -48,6 +49,10 @@ exports.login = async (req, res) => {
         if (err) throw err;
         res.json({
           token,
+          user: {
+            id: user.id,
+            name: user.name,
+          },
           message: 'Login successful!',
         });
       }

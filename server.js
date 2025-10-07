@@ -15,10 +15,12 @@ app.use(express.json()); // Parse incoming JSON requests
 // Import routes
 const productRoutes = require('./src/api/routes/product.routes');
 const authRoutes = require('./src/api/routes/auth.routes')
+const cartRoutes = require('./src/api/routes/cart.routes')
 
 // Mount routes
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/cart', cartRoutes);
 
 // A simple test route to make sure the server is working
 app.get('/', (req, res) => {
